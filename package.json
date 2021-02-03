@@ -18,5 +18,18 @@
   "devDependencies": {
     "@babel/core": "~7.9.0"
   },
-  "private": true
+  "private": true,
+  "name": "hcddassignment2ansell",
+  "version": "1.0.0",
+  "description": "Assignment 1 HCDD 340 Spring 2021",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/francescaansell/Treender.git"
+  },
+  "author": "Francesca Ansell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/francescaansell/Treender/issues"
+  },
+  "homepage": "https://github.com/francescaansell/Treender#readme"
 }
