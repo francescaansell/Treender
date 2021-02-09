@@ -19,45 +19,42 @@ export default function App() {
     <View style={styles.container}>
       <View style={styles.navbar}>
         <View>
-          <Feather name="settings" size={24} color="grey" />
+          <Feather name="settings" size={34} color="grey" />
         </View>
         <View> 
-          <Image source={Images.logo} style={{ width: 80, height: 30 }} /> 
+          <Image source={Images.logo} style={{ width: 120, height: 45 }} /> 
         </View>
         <View>
-          <Entypo name="chat" size={24} color="grey" />
+          <Entypo name="chat" size={34} color="grey" />
         </View>  
       </View>
 
       <View style={styles.middle}>
-      
-        <Image source={Profiles.hosler} style={{ maxWidth: 290, height: 300 }} />   
+        <Image style={styles.profilePic} source={Profiles.hosler.image} />   
         <View style={styles.profileText}>
-        <View style={{flexDirection: 'row', justifyContent: 'flex-start'}}>
-
-          <Text style={{fontSize: 24, paddingLeft: 10, fontWeight: 'bold'}}>Hosler,</Text>
-          <Text style={{fontSize: 24, paddingLeft: 5}}>#7863</Text>
-
-      </View>
-        <Text style={{fontsize: 16, paddingLeft: 10, paddingBottom: 5, color: 'grey'}}>Arboretum</Text>
+          <View style={{flexDirection: 'row', justifyContent: 'flex-start'}}>
+            <Text style={{fontSize: 24, paddingLeft: 10, fontWeight: 'bold'}}>Hosler,</Text>
+            <Text style={{fontSize: 24, paddingLeft: 5}}>#7863</Text>
+          </View>
+        <Text style={{fontSize: 16, paddingLeft: 10, paddingBottom: 5, color: 'grey'}}>Arboretum</Text>
         </View>
       </View>
 
       <View style={styles.bottomAction}>
-        <View style={styles.smallPic}>
-          <Image source={Images.rewind} style={{width: 21, height: 25 }} /> 
+        <View style={[styles.smallPicView, {paddingTop: 8, paddingBottom: 8}]}>
+          <Image source={Images.rewind} style={{height: 24, width: 21}} /> 
         </View>
-        <View style={styles.bigPic}>
-          <Image source={Images.nope} style={{ width: 30, height: 30 }} /> 
+        <View style={styles.bigPicView}>
+          <Image source={Images.nope} style={{height: 30, width: 30}} /> 
         </View>
-        <View style={styles.smallPic}>
-          <Image source={Images.boost} style={{ width: 15, height: 30 }} /> 
+        <View style={[styles.smallPicView, {paddingBottom: 5, paddingTop: 5}]}>
+          <Image source={Images.boost} style={{height: 31, width: 20}} /> 
         </View>
-        <View style={styles.bigPic}>
-          <Image source={Images.like} style={{ width: 36, height: 30 }} /> 
+        <View style={[styles.bigPicView, {paddingLeft: 11, paddingRight: 11}]}>
+          <Image source={Images.like} style={{height: 30, width: 36}} /> 
         </View>
-        <View style={styles.smallPic}>
-          <Image source={Images.superLike} style={{ width: 30, height: 27 }} /> 
+        <View style={[styles.smallPicView, {paddingTop: 8, paddingBottom: 8}]}>
+          <Image source={Images.superLike} style={{height: 25, width: 25}} /> 
         </View>
       </View>
     </View>
@@ -79,20 +76,26 @@ const styles = StyleSheet.create({
     borderColor: 'grey',
     justifyContent: 'space-around',
     maxHeight: 56,
-    marginTop: 20,
+    paddingBottom: 0,
+   
+  
   },
 
   middle: {
-    marginLeft: 20,
+    
     justifyContent: 'center',
-    align: 'center',
     borderWidth: 1,
     borderColor: 'grey',
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
-    width: 300,
+    margin: 15, 
+   
   },
-
+  profilePic: {
+    height: 300,
+    width: 360, 
+  
+  },
   profileText: {
     backgroundColor: 'white',
     borderBottomLeftRadius: 10,
@@ -102,22 +105,28 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     padding: 10,
+    margin: 10, 
+    //borderWidth: 1,
+    marginBottom: 0, 
   },
 
-  bigPic: {
+  bigPicView: {
     backgroundColor: 'white',
-    border: 1,
-    borderRadius: 200, 
-    padding: 15,
+    borderColor: 'white',
+    borderWidth: 1,
+    borderRadius: 60 * 0.5,
+    padding: 14,
+    
   },
-  smallPic: {
+  smallPicView: {
     backgroundColor: 'white',
-    border: 1,
-    borderRadius: 200, 
-    paddingLeft: 10,
-    paddingRight: 10, 
-    paddingTop: 10, 
-    paddingBottom: 0, 
-   
+    borderWidth: 1,
+    borderColor: 'white',
+    borderRadius: 100 * 0.5, 
+    padding: 10, 
+    height: 44, 
+    marginTop: 10,
+    
   },
+  
 })
