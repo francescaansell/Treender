@@ -11,6 +11,9 @@ import { Feather } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons'; 
 
 export default function App() {
+
+  
+
   return (
     
     <View style={styles.container}>
@@ -30,8 +33,13 @@ export default function App() {
       
         <Image source={Profiles.hosler} style={{ maxWidth: 290, height: 300 }} />   
         <View style={styles.profileText}>
-        <Text style={{fontSize: 24, padding: 5}}>Hosler Oak, #7863</Text>
-        <Text style={{fontsize: 16, padding: 5}}>Arboretum</Text>
+        <View style={{flexDirection: 'row', justifyContent: 'flex-start'}}>
+
+          <Text style={{fontSize: 24, paddingLeft: 10, fontWeight: 'bold'}}>Hosler,</Text>
+          <Text style={{fontSize: 24, paddingLeft: 5}}>#7863</Text>
+
+      </View>
+        <Text style={{fontsize: 16, paddingLeft: 10, paddingBottom: 5, color: 'grey'}}>Arboretum</Text>
         </View>
       </View>
 
@@ -67,7 +75,7 @@ const styles = StyleSheet.create({
   navbar: {
     flex: 1, 
     flexDirection: 'row',
-    borderBottomWidth: 1,
+    borderBottomWidth: 2,
     borderColor: 'grey',
     justifyContent: 'space-around',
     maxHeight: 56,
@@ -78,8 +86,8 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     justifyContent: 'center',
     align: 'center',
-    borderWidth: 2,
-    bordercolor: '#a9a9a9',
+    borderWidth: 1,
+    borderColor: 'grey',
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
     width: 300,
@@ -106,6 +114,10 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     border: 1,
     borderRadius: 200, 
+    paddingLeft: 10,
+    paddingRight: 10, 
+    paddingTop: 10, 
+    paddingBottom: 0, 
    
   },
 })
