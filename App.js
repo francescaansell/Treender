@@ -6,7 +6,8 @@ import {
   View,
   Image, 
   Button,
-  TouchableOpacity
+  TouchableOpacity, 
+  Platform
 } from 'react-native';
 import { Images } from './App/Themes';
 import { Profiles } from './App/Themes';
@@ -15,11 +16,11 @@ import { Entypo } from '@expo/vector-icons';
 import  ProfileView  from './App/Components/ProfileView';
 export default function App() {
 
-  const [profile, setProfile] = useState(profile)
-  
-  const prevProfiles = [];
+  const [profile, setProfile] = useState(Profiles.random)
 
-  const [prevProfile, setPrevProfile] = useState(profile)
+  //const prevProfiles = [];
+
+  //const [prevProfile, setPrevProfile] = useState(profile)
 
   
 
@@ -38,7 +39,10 @@ export default function App() {
         </View>  
       </View>
 
+    
       {ProfileView(profile)}
+    
+      
 
       <View style={styles.bottomAction}>
         <TouchableOpacity 
@@ -77,12 +81,8 @@ export default function App() {
           onPress = {() => {setProfile(Profiles.random)}}
           
           /> 
-        </TouchableOpacity>
-       
-        
+        </TouchableOpacity>      
       </View>
-
-
     </View>
   
   );
@@ -101,11 +101,27 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
     borderColor: 'grey',
     justifyContent: 'space-around',
-    maxHeight: 56,
+    ...Platform.select({
+      ios: {
+        maxHeight: 44,
+      
+      },
+      android: {
+        maxHeight: 56,
+      }, 
+      default: {
+        //other
+        maxHeight: 56
+      }
+       
+    }),
+
     paddingBottom: 0,
    
   
   },
+
+  
 
   bottomAction: {
     flexDirection: 'row',
