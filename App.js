@@ -1,16 +1,25 @@
-import React from 'react';
+
+import React, {useState } from 'react';
 import {
   StyleSheet,
   Text,
   View,
-  Image
+  Image, 
+  Button,
+  TouchableOpacity
 } from 'react-native';
 import { Images } from './App/Themes';
 import { Profiles } from './App/Themes';
 import { Feather } from '@expo/vector-icons'; 
 import { Entypo } from '@expo/vector-icons'; 
-
+import  ProfileView  from './App/Components/ProfileView';
 export default function App() {
+
+  const [profile, setProfile] = useState(profile)
+  
+  const prevProfiles = [];
+
+  const [prevProfile, setPrevProfile] = useState(profile)
 
   
 
@@ -29,34 +38,51 @@ export default function App() {
         </View>  
       </View>
 
-      <View style={styles.middle}>
-        <Image style={styles.profilePic} source={Profiles.hosler.image} />   
-        <View style={styles.profileText}>
-          <View style={{flexDirection: 'row', justifyContent: 'flex-start'}}>
-            <Text style={{fontSize: 24, paddingLeft: 10, fontWeight: 'bold'}}>Hosler,</Text>
-            <Text style={{fontSize: 24, paddingLeft: 5}}>#7863</Text>
-          </View>
-        <Text style={{fontSize: 16, paddingLeft: 10, paddingBottom: 5, color: 'grey'}}>Arboretum</Text>
-        </View>
-      </View>
+      {ProfileView(profile)}
 
       <View style={styles.bottomAction}>
-        <View style={[styles.smallPicView, {paddingTop: 8, paddingBottom: 8}]}>
+        <TouchableOpacity 
+          style={[styles.smallPicView, {paddingTop: 8, paddingBottom: 8}]}
+          onPress={() => setProfile(prevProfile)}
+        >
           <Image source={Images.rewind} style={{height: 24, width: 21}} /> 
-        </View>
-        <View style={styles.bigPicView}>
+        </TouchableOpacity>
+        <TouchableOpacity 
+          style={styles.bigPicView}
+          onPress = {() => {setPrevProfile(profile)}}
+          onPress={() => setProfile(Profiles.random)}
+        >
           <Image source={Images.nope} style={{height: 30, width: 30}} /> 
-        </View>
-        <View style={[styles.smallPicView, {paddingBottom: 5, paddingTop: 5}]}>
+        </TouchableOpacity>
+        <TouchableOpacity 
+          style={[styles.smallPicView, {paddingBottom: 5, paddingTop: 5}]}
+          onPress = {() => {}}
+        >
           <Image source={Images.boost} style={{height: 31, width: 20}} /> 
-        </View>
-        <View style={[styles.bigPicView, {paddingLeft: 11, paddingRight: 11}]}>
+        </TouchableOpacity>
+        <TouchableOpacity 
+          style={[styles.bigPicView, {paddingLeft: 11, paddingRight: 11}]}
+          onPress = {() => {setPrevProfile(profile)}}
+          onPress={() => setProfile(Profiles.random)}
+        >
           <Image source={Images.like} style={{height: 30, width: 36}} /> 
-        </View>
-        <View style={[styles.smallPicView, {paddingTop: 8, paddingBottom: 8}]}>
-          <Image source={Images.superLike} style={{height: 25, width: 25}} /> 
-        </View>
+        </TouchableOpacity>
+        <TouchableOpacity 
+          style={[styles.smallPicView, {paddingTop: 8, paddingBottom: 8}]}
+          onPress = {() => {setPrevProfile(profile)}}
+          onPress={() => setProfile(Profiles.random)}
+        >
+          <Image source={Images.superLike} style={{height: 25, width: 25}} 
+          onPress = {() => {setPrevProfile(profile)}}
+          onPress = {() => {setProfile(Profiles.random)}}
+          
+          /> 
+        </TouchableOpacity>
+       
+        
       </View>
+
+
     </View>
   
   );
@@ -81,26 +107,6 @@ const styles = StyleSheet.create({
   
   },
 
-  middle: {
-    
-    justifyContent: 'center',
-    borderWidth: 1,
-    borderColor: 'grey',
-    borderBottomLeftRadius: 10,
-    borderBottomRightRadius: 10,
-    margin: 15, 
-   
-  },
-  profilePic: {
-    height: 300,
-    width: 360, 
-  
-  },
-  profileText: {
-    backgroundColor: 'white',
-    borderBottomLeftRadius: 10,
-    borderBottomRightRadius: 10,
-  },
   bottomAction: {
     flexDirection: 'row',
     justifyContent: 'space-between',
