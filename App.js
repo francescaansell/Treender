@@ -1,3 +1,11 @@
+/**
+ * @author Francesca Ansell
+ * Assignment 2 Treender App
+ * Last update 2.12.2021
+ * resources: https://reactnative.dev/docs/imagebackground, https://reactnative.dev/docs/platform-specific-code, https://github.com/vhpoet/react-native-styling-cheat-sheet
+ */
+
+
 import React, {useState } from 'react';
 import {
   StyleSheet,
@@ -14,7 +22,7 @@ import { Entypo } from '@expo/vector-icons';
 import  ProfileView  from './App/Components/ProfileView';
 export default function App() {
 
-  const [profile, setProfile] = useState(profile)
+  const [profile, setProfile] = useState(Profiles.random)
   
   const prevProfiles = [];
 
@@ -33,7 +41,7 @@ export default function App() {
           <Image source={Images.logo} style={{ width: 120, height: 45 }} /> 
         </View>
         <View>
-          <Entypo name="chat" size={34} color="grey" />
+          <Image source={Images.chat} style={{width: 40, height: 35, tintColor: 'grey'}}/>
         </View>  
       </View>
 
@@ -77,13 +85,8 @@ export default function App() {
           
           /> 
         </TouchableOpacity>
-       
-        
       </View>
-
-
     </View>
-  
   );
 }
 
@@ -102,6 +105,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     maxHeight: 56,
     paddingBottom: 0,
+    marginTop: 8, 
    
   
   },
@@ -112,7 +116,7 @@ const styles = StyleSheet.create({
     padding: 10,
     margin: 10, 
     //borderWidth: 1,
-    marginBottom: 0, 
+    marginBottom: 3, 
   },
 
   bigPicView: {
